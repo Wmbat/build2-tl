@@ -1,5 +1,6 @@
 libs =
 import libs += tl-expected%lib{tl-expected}
+import libs += catch2%lib{catch2}
 
 exe{tl-expected-tests}: {hxx ixx txx cxx}{**} $libs
 
