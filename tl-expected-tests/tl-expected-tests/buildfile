@@ -1,5 +1,5 @@
 libs =
-#import libs += libhello%lib{hello}
+import libs += tl-expected%lib{tl-expected}
 
 exe{tl-expected-tests}: {hxx ixx txx cxx}{**} $libs
 

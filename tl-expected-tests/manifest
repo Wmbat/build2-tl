@@ -1,6 +1,6 @@
 : 1
 name: tl-expected-tests
-version: 0.1.0-a.0.z
+version: 1.0.0
 project: tl
 summary: tl-expected-tests C++ executable
 license: other: proprietary ; Not free/open source.
@@ -10,4 +10,5 @@ email: wmbat-dev@protonmail.com
 #build-error-email: wmbat-dev@protonmail.com
 depends: * build2 >= 0.14.0
 depends: * bpkg >= 0.14.0
-#depends: libhello ^1.0.0
+
+depends: tl-expected == 1.0.0
