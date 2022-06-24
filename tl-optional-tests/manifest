@@ -1,0 +1,13 @@
+: 1
+name: tl-optional-tests
+version: 0.1.0-a.0.z
+project: tl
+summary: tl-optional-tests C++ executable
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/tl
+email: wmbat-dev@protonmail.com
+#build-error-email: wmbat-dev@protonmail.com
+depends: * build2 >= 0.14.0
+depends: * bpkg >= 0.14.0
+#depends: libhello ^1.0.0
