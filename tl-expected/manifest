@@ -5,8 +5,8 @@ project: tl
 summary: tl-expected C++ library
 license: other: proprietary ; Not free/open source.
 description-file: README.md
-url: https://example.org/tl
 
+url: https://example.org/tl
 email: wmbat-dev@protonmail.com
 #build-error-email: wmbat-dev@protonmail.com
 
