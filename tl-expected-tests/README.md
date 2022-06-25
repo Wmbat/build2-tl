@@ -1,3 +1,1 @@
-# tl-expected-tests
-
-C++ executable
+../upstream-expected/README.md

@@ -2,16 +2,16 @@
 name: tl-expected
 version: 1.0.0
 project: tl
-summary: tl-expected C++ library
-license: other: proprietary ; Not free/open source.
+summary: C++11/14/17 std::expected with functional-style extensions 
+license: CC0 1.0 Universal ; Creative Commons Zero v1.0 Universal
 description-file: README.md
+url: https://tl.tartanllama.xyz/en/latest/
 
-url: https://example.org/tl
-email: wmbat-dev@protonmail.com
-#build-error-email: wmbat-dev@protonmail.com
+package-email: wmbat-dev@protonmail.com
 
 tests: tl-expected-tests == $
 
+requires: c++ >= 11
+
 depends: * build2 >= 0.14.0
 depends: * bpkg >= 0.14.0
-
