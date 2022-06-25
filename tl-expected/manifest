@@ -5,8 +5,10 @@ project: tl
 summary: C++11/14/17 std::expected with functional-style extensions 
 license: CC0 1.0 Universal ; Creative Commons Zero v1.0 Universal
 description-file: README.md
-url: https://tl.tartanllama.xyz/en/latest/
 
+doc-url: https://tl.tartanllama.xyz/en/latest/
+
+package-url: https://github.com/build2-packaging/build2-tl
 package-email: wmbat-dev@protonmail.com
 
 tests: tl-expected-tests == $
