@@ -1,0 +1,7 @@
+libs =
+import libs += tl-optional%lib{tl-optional}
+import libs += catch2%lib{catch2}
+
+exe{tl-optional-tests}: {hxx ixx txx cxx}{**} $libs
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"

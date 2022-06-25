@@ -1,15 +1,14 @@
 : 1
-name: tl-optional
+name: tl-optional-tests
 version: 1.0.0
 project: tl
-summary: tl-optional C++ library
+summary: tl-optional-tests C++ executable
 license: other: proprietary ; Not free/open source.
 description-file: README.md
 url: https://example.org/tl
 email: wmbat-dev@protonmail.com
 #build-error-email: wmbat-dev@protonmail.com
-
-tests: tl-optional-tests == $
-
 depends: * build2 >= 0.14.0
 depends: * bpkg >= 0.14.0
+
+depends: catch2 ^2.13.7
