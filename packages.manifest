@@ -6,3 +6,7 @@ location: tl-expected-tests/
 location: tl-optional/
 :
 location: tl-optional-tests/
+:
+location: tl-generator/
+:
+location: tl-generator-tests/

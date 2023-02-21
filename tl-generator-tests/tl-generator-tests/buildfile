@@ -1,0 +1,7 @@
+libs =
+import libs += tl-generator%lib{tl-generator}
+import libs += catch2%lib{catch2}
+
+exe{tl-generator-tests}: {hxx ixx txx cxx}{**} $libs
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"

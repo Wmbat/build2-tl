@@ -4,3 +4,6 @@
 [submodule "upstream-optional"]
 	path = upstream-optional
 	url = https://github.com/TartanLlama/optional
+[submodule "upstream-generator"]
+	path = upstream-generator
+	url = https://github.com/TartanLlama/generator

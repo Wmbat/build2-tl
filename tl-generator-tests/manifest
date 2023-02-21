@@ -1,0 +1,18 @@
+: 1
+name: tl-generator-tests
+version: 0.3.0
+project: tl
+summary: ranges-compatible generator type built on C++20 coroutines 
+license: CC0-1.0 Universal ; Creative Commons Zero v1.0 Universal
+description-file: README.md
+doc-url: https://tl.tartanllama.xyz/en/latest/
+
+package-url: https://github.com/build2-packaging/build2-tl
+package-email: wmbat-dev@protonmail.com
+
+requires: c++ >= 20
+
+depends: * build2 >= 0.14.0
+depends: * bpkg >= 0.14.0
+
+depends: catch2 ^2.13.7
