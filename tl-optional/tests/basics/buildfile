@@ -1,3 +1,0 @@
-import libs = tl-optional%lib{tl-optional}
-
-exe{driver}: {hxx ixx txx cxx}{**} $libs testscript
