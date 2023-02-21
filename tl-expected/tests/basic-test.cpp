@@ -1,16 +1,7 @@
-#include <iostream>
-
 #include <tl/expected.hpp>
 
-int main (int argc, char* argv[])
+// This is a dummy test project. The actual library tests are located in the `tl-expected-tests` folder
+int main ()
 {
-  using namespace std;
-
-  if (argc < 2)
-  {
-    cerr << "error: missing name" << endl;
-    return 1;
-  }
-
-  cout << "Hello, " << argv[1] << '!' << endl;
+	return tl::expected<int, int>(0).value_or(-1);
 }
