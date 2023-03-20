@@ -1,6 +1,6 @@
 : 1
 name: tl-optional-tests
-version: 1.0.0
+version: 1.1.0
 project: tl
 summary: C++11/14/17 std::optional with functional-style extensions and reference support
 license: CC0 1.0 Universal ; Creative Commons Zero v1.0 Universal
