@@ -1,16 +1,7 @@
-#include <iostream>
-
 #include <tl/optional.hpp>
 
-int main(int argc, char* argv[]) 
+// This is a dummy test project. The actual library tests are located in the `tl-optional-tests` folder
+int main() 
 {
-	using namespace std;
-
-	if (argc < 2) 
-	{
-		cerr << "error: missing name" << endl;
-		return 1;
-	}
-
-	cout << "Hello, " << argv[1] << '!' << endl;
+	return tl::optional<int>(0).value_or(-1);
 }

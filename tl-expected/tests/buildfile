@@ -1,7 +1,7 @@
 libs =
 import libs += lib{tl-expected}
 
-exe{basic-test}: {hxx ixx txx cxx}{**} $libs testscript
+exe{basic-test}: {hxx ixx txx cxx}{**} $libs
 
 cxx.poptions =+ "-I$out_root" "-I$src_root"
 

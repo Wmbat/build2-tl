@@ -1,9 +1,9 @@
 : 1
 name: tl-expected
-version: 1.1.0
+version: 1.1.0+1
 project: tl
-summary: C++11/14/17 std::expected with functional-style extensions 
-license: CC0 1.0 Universal ; Creative Commons Zero v1.0 Universal
+summary: C++11/14/17 std::expected with functional-style extensions
+license: CC0-1.0 Universal ; Creative Commons Zero v1.0 Universal
 description-file: README.md
 
 doc-url: https://tl.tartanllama.xyz/en/latest/
