@@ -2,7 +2,7 @@
 name: tl-generator
 version: 0.4.0
 project: tl
-summary: ranges-compatible generator type built on C++20 coroutines 
+summary: ranges-compatible generator type built on C++20 coroutines
 license: CC0-1.0 Universal ; Creative Commons Zero v1.0 Universal
 description-file: README.md
 doc-url: https://tl.tartanllama.xyz/en/latest/
@@ -16,3 +16,9 @@ requires: c++ >= 20
 
 depends: * build2 >= 0.14.0
 depends: * bpkg >= 0.14.0
+
+
+build-include: windows**-clang_16** ; Clang >= 16 + windows should work
+build-exclude: **-clang_** ; Most clang versions dont handle coroutines yet
+build-exclude: **-emcc_** ; Most clang versions dont handle coroutines yet
+build-exclude: windows**-gcc_** ; MinGW/gcc not officially supported yet
