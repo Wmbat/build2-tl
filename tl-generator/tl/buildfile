@@ -1,0 +1,25 @@
+intf_libs = # Interface dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+lib{tl-generator}: {hxx ixx txx cxx}{**} $intf_libs
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+# Export options.
+#
+lib{tl-generator}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.libs = $intf_libs
+}
+
+# Install into the tl-generator/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx}{*}:
+{
+  install         = include/tl/
+  install.subdirs = true
+}

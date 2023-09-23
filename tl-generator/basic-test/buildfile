@@ -1,0 +1,8 @@
+libs =
+import libs += lib{tl-generator}
+
+exe{basic-test}: {hxx ixx txx cxx}{**} $libs testscript
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+exe{*}: test = true

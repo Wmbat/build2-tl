@@ -1,10 +1,13 @@
 name: build2
 
-on: 
+on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
+env:
+  PACKAGES_ENABLED_FOR_CLANG_UNIX: -d tl-expected/ -d tl-expected-tests/ -d tl-optional/ -d tl-optional-tests/
 
 jobs:
 
@@ -18,15 +21,23 @@ jobs:
           - name: Ubuntu gcc Debug
             os: ubuntu-latest
             config_file: gcc.debug.build
-          - name: Ubuntu clang Debug
-            os: ubuntu-latest
-            config_file: clang.debug.build
+            packages: --all
+
           - name: Ubuntu gcc Release
             os: ubuntu-latest
             config_file: gcc.release.build
+            packages: --all
+
+          - name: Ubuntu clang Debug
+            os: ubuntu-latest
+            config_file: clang.debug.build
+            packages: $PACKAGES_ENABLED_FOR_CLANG_UNIX
+
           - name: Ubuntu clang Release
             os: ubuntu-latest
             config_file: clang.release.build
+            packages: $PACKAGES_ENABLED_FOR_CLANG_UNIX
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -37,9 +48,14 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update
       - name: Configure
-        run: bdep init -C @cc cc config.config.load=build-config/${{matrix.config.config_file}}
+        run: |
+              bdep init --empty
+              bdep config create @cc  ../build-tl cc config.config.load=build-config/${{matrix.config.config_file}}
+              bdep init ${{matrix.config.packages}}
       - name: Build
-        run: b update test -V
+        run: bdep update -V
+      - name: Tests
+        run: bdep test -V
 
   # Job for building on MacOS
   MacOS:
@@ -51,9 +67,11 @@ jobs:
           - name: MacOS clang Debug
             os: macos-latest
             config_file: clang.debug.build
+
           - name: MacOS clang Release
             os: macos-latest
             config_file: clang.release.build
+
     steps:
     - uses: actions/checkout@v3
       with:
@@ -62,9 +80,14 @@ jobs:
       with:
         build2-version: staged
     - name: Configure
-      run: bdep init -C @cc cc config.config.load=build-config/${{matrix.config.config_file}}
+      run: |
+            bdep init --empty
+            bdep config create @cc  ../build-tl cc config.config.load=build-config/${{matrix.config.config_file}}
+            bdep init $PACKAGES_ENABLED_FOR_CLANG_UNIX
     - name: Build
-      run: b update test -V
+      run: bdep update -V
+    - name: Tests
+      run: bdep test -V
 
   # Job for building on Windows
   Windows:
@@ -77,18 +100,22 @@ jobs:
               os: windows-latest
               config_file: msvc.debug.build
               compiler_type: msvc
-            - name: Windows clang Debug
-              os: windows-latest
-              config_file: clang.debug.build
-              compiler_type: clang
+
             - name: Windows msvc Release
               os: windows-latest
               config_file: msvc.release.build
               compiler_type: msvc
+
+            - name: Windows clang Debug
+              os: windows-latest
+              config_file: clang.debug.build
+              compiler_type: clang
+
             - name: Windows clang Release
               os: windows-latest
               config_file: clang.release.build
               compiler_type: clang
+
     steps:
     - uses: actions/checkout@v3
       with:
@@ -98,6 +125,8 @@ jobs:
         build2-version: staged
         build2-windows-compiler: ${{matrix.config.compiler_type}}
     - name: Configure
-      run: bdep init -C ../imgui-cc @cc cc config.config.load=build-config/${{matrix.config.config_file}}
+      run: bdep init -C  ../build-tl @cc cc config.config.load=build-config/${{matrix.config.config_file}}
     - name: Build
-      run: b update test -V
+      run: bdep update -V
+    - name: Tests
+      run: bdep test -V
